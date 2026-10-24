@@ -65,6 +65,7 @@ async def health():
 
 @app.get("/api/opportunities")
 async def opportunities(
+async def opportunities(
     deposit: float = Query(1000, gt=0, le=1_000_000_000),
     min_spread_pct: float = Query(5.0, ge=0.0, le=100.0),
     assets: str = Query("USDT,BTC,ETH,SOL"),
@@ -78,7 +79,6 @@ async def opportunities(
     symbols = [f"{asset}/USDT" for asset in selected_assets if asset in ASSET_BASES]
     if not symbols:
         symbols = ["BTC/USDT", "ETH/USDT", "SOL/USDT"]
-
     jobs = [fetch_market(ex, sym) for ex in selected_exchanges for sym in symbols]
     rows = await asyncio.gather(*jobs, return_exceptions=True)
     rows = [row for row in rows if isinstance(row, dict)]
