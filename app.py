@@ -26,7 +26,7 @@ class ScanRequest(BaseModel):
     deposit: float = Field(default=1000, gt=0, le=1_000_000_000)
     min_spread_pct: float = Field(default=5.0, ge=0.0, le=100.0)
     assets: list[str] = ["USDT", "BTC", "ETH", "SOL"]
-    exchanges: list[str] = ["binance", "bybit", "okx", "kucoin", "mexc", "gateio", "bingx"]
+    exchanges: list[str] = ["binance", "bybit", "okx", "kucoin", "mexc", "gate", "bingx"]
 
 def make_exchange(exchange_id: str):
     cls = getattr(ccxt, exchange_id, None)
