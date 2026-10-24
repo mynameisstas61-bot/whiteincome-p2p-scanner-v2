@@ -65,7 +65,6 @@ async def health():
 
 @app.get("/api/opportunities")
 async def opportunities(
-async def opportunities(
     deposit: float = Query(1000, gt=0, le=1_000_000_000),
     min_spread_pct: float = Query(5.0, ge=0.0, le=100.0),
     assets: str = Query("USDT,BTC,ETH,SOL"),
