@@ -68,8 +68,7 @@ async def opportunities(
     deposit: float = Query(1000, gt=0, le=1_000_000_000),
     min_spread_pct: float = Query(5.0, ge=0.0, le=100.0),
     assets: str = Query("USDT,BTC,ETH,SOL"),
-    exchanges: str = Query("binance,bybit,okx,kucoin,mexc,gateio,bingx"),
-):
+    exchanges: str = Query("binance,bybit,okx,kucoin,mexc,gate,bingx"),
     selected_exchanges = [x.strip().lower() for x in exchanges.split(",") if x.strip() in EXCHANGE_IDS]
     selected_assets = [x.strip().upper() for x in assets.split(",") if x.strip()]
     if len(selected_exchanges) < 2:
