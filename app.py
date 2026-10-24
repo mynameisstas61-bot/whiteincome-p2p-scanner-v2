@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-EXCHANGE_IDS = {"binance", "bybit", "okx", "kucoin", "mexc", "gateio", "bingx"}
+EXCHANGE_IDS = {"binance", "bybit", "okx", "kucoin", "mexc", "gate", "bingx"}
 ASSET_BASES = {"BTC", "ETH", "SOL"}
 DEFAULT_TAKER_FEE = 0.001  # rough estimate: 0.1% per side; configure per venue before relying on results
 TIMEOUT_MS = 9000
