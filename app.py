@@ -82,7 +82,7 @@ async def opportunities(
 
     jobs = [fetch_market(ex, sym) for ex in selected_exchanges for sym in symbols]
     rows = await asyncio.gather(*jobs, return_exceptions=True)
-rows = [row for row in rows if isinstance(row, dict)]
+    rows = [row for row in rows if isinstance(row, dict)]
     by_symbol: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
         if row:
